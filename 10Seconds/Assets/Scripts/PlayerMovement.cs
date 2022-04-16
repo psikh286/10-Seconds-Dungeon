@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class playerMovement : MonoBehaviour
 {
 	[SerializeField]
 	private float moveSpeed = 5f;
@@ -14,14 +14,18 @@ public class PlayerMovement : MonoBehaviour
 	private void Update()
 	{
 		movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-		if (movement.x != 0)
+		if (movement != Vector2.zero)
 		{
-			transform.localScale = new Vector3(movement.x, 1, 1);
 			anim.SetBool("Run", true);
 		}else
 		{
 			anim.SetBool("Run", false);
 		}
+		if (movement.x != 0)
+		{
+			transform.localScale = new Vector3(movement.x, 1, 1);			
+		}
+		
 	}
 
 	private void FixedUpdate()
