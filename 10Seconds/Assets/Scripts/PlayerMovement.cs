@@ -13,19 +13,22 @@ public class playerMovement : MonoBehaviour
 
 	private void Update()
 	{
-		movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-		if (movement != Vector2.zero)
+		if (!gameManager.Instance.gameIsPaused)
 		{
-			anim.SetBool("Run", true);
-		}else
-		{
-			anim.SetBool("Run", false);
+			movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+			if (movement != Vector2.zero)
+			{
+				anim.SetBool("Run", true);
+			}
+			else
+			{
+				anim.SetBool("Run", false);
+			}
+			if (movement.x != 0)
+			{
+				transform.localScale = new Vector3(movement.x, 1f, 1f);
+			}
 		}
-		if (movement.x != 0)
-		{
-			transform.localScale = new Vector3(movement.x, 1f, 1f);			
-		}
-		
 	}
 
 	private void FixedUpdate()

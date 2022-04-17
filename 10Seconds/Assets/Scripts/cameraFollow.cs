@@ -10,7 +10,8 @@ public class cameraFollow : MonoBehaviour
 
 	void FixedUpdate()
     {
-        Camera();
+        if (gameManager.Instance.playerAlive)
+            Camera();
     }
     
     private void Camera()
