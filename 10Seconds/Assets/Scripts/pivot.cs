@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class sword : MonoBehaviour
+public class pivot : MonoBehaviour
 {
 	[SerializeField]
 	private Transform player;

@@ -23,7 +23,7 @@ public class playerMovement : MonoBehaviour
 		}
 		if (movement.x != 0)
 		{
-			transform.localScale = new Vector3(movement.x, 1, 1);			
+			transform.localScale = new Vector3(movement.x, 1f, 1f);			
 		}
 		
 	}
