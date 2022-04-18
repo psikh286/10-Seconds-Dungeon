@@ -3,16 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class deathMenu : MonoBehaviour
 {
-
-
-	private void Score()
+	private void OnEnable()
 	{
-
+		//score.Instance.UpdateGUI();
 	}
 
-    public void Restart()
+	public void Restart()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		playerAtributes.playerAlive = true;
 	}
 
 	public void Menu()

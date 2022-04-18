@@ -8,10 +8,20 @@ public class cameraFollow : MonoBehaviour
 
     public Transform target;	
 
-	void FixedUpdate()
+	private void FixedUpdate()
     {
-        if (gameManager.Instance.playerAlive)
-            Camera();
+        if (playerAtributes.playerAlive)
+		{
+            if (target != null)
+            {
+                Camera();
+            }
+            else
+            {
+                target = GameObject.FindGameObjectWithTag("Player").transform;
+            }
+            
+        }            
     }
     
     private void Camera()
