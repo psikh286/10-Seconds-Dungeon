@@ -10,7 +10,7 @@ public class player : MonoBehaviour
 public class atributes
 {
 	public string name;
-	public Sprite healthBar;
+	public Sprite healthBar;	
 	public float speed;
 	public float health;
 	public float damage;
