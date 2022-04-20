@@ -29,8 +29,6 @@ public class playerMovement : MonoBehaviour
 		}
 		if (movement.x != 0)
 		{
-			//transform.eulerAngles = new Vector3(0f, (movement.x - 1) * 90f, 0f);
-
 			transform.localRotation = Quaternion.Euler(0f, (movement.x - 1) * 90f, 0f);
 		}		
 	}

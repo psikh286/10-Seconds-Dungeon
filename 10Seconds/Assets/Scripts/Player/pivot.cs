@@ -7,7 +7,8 @@ public class pivot : MonoBehaviour
 
 	private void LateUpdate()
 	{		
-		Vector3 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+		Vector3 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+		direction.Normalize();
 		float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 		transform.localRotation = Quaternion.Euler(0f, 0f, rotation);
 

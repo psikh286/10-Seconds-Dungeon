@@ -1,33 +1,23 @@
 using UnityEngine;
 using System.Collections;
 
-public class followEnemy : MonoBehaviour
+public class followEnemy : MonoBehaviour, IDamagable
 {
 	[Header("Stats")]
 
-    [SerializeField]
-    private float speed = 5f;    
-    [SerializeField]
-    private float minDistance = 1f;
-	[SerializeField]
-	private float coolDown = 1f;
-	[SerializeField]
-	private float damage;
-	[SerializeField]
-	private float health = 10f;
+    [SerializeField] private float speed = 5f;    
+    [SerializeField] private float minDistance = 1f;
+	[SerializeField] private float coolDown = 1f;
+	[SerializeField] private float damage;
+	[SerializeField] private float health = 10f;
 	[Space]
 
 	[Header("Refernces")]	
-	[SerializeField]
-	private Animator anim;
-	[SerializeField]
-	private GameObject death_prefab;
-	[SerializeField]
-	private playerAtributes _player;
-	[SerializeField]
-	private bool can_damage = true;
-	[SerializeField]
-	private Transform target;
+	[SerializeField] private Animator anim;
+	[SerializeField] private GameObject death_prefab;
+	[SerializeField] private playerAtributes _player;
+	[SerializeField] private bool can_damage = true;
+	[SerializeField] private Transform target;
 
 	private void Update()
 	{		
@@ -74,17 +64,18 @@ public class followEnemy : MonoBehaviour
 		can_damage = true;		
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
+	private void Hit(float damageAmount)
 	{
-		if (other.tag == "Finish")
+		health -= damageAmount;
+
+		if (health <= 0)
 		{
-			health -= 5f;
-			if (health <= 0)
-			{
-				//score.Instance.count_demon += 1;
-				Destroy(Instantiate(death_prefab, transform.position, Quaternion.identity), 1f);
-				Destroy(gameObject);
-			}
+			Destroy(gameObject);
 		}
-	}	
+	}
+
+	public void Damage(float damageAmount)
+	{
+		Hit(damageAmount);
+	}
 }
