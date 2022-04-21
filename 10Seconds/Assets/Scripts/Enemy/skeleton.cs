@@ -1,22 +1,19 @@
 using UnityEngine;
-using System.Collections;
 
-public class followEnemy : MonoBehaviour, IDamagable
+public class skeleton : MonoBehaviour, IDamagable
 {
 	[Header("Stats")]
 
-    [SerializeField] private float speed = 5f;    
-    [SerializeField] private float minDistance = 1f;
-	[SerializeField] private float coolDown = 1f;
+	[SerializeField] private float speed = 4f;
+	[SerializeField] private float minDistance = 1.5f;
 	[SerializeField] private float damage;
-	[SerializeField] private float health = 10f;
+	[SerializeField] private float health = 5f;
 	[Space]
 
-	[Header("Refernces")]	
+	[Header("Refernces")]
 	[SerializeField] private Animator anim;
-	[SerializeField] private GameObject death_prefab;	
-	[SerializeField] private bool can_damage = true;
-	
+	[SerializeField] private GameObject death_prefab;
+
 	private Transform target;
 	private playerAtributes _player;
 
@@ -26,7 +23,7 @@ public class followEnemy : MonoBehaviour, IDamagable
 	}
 
 	private void Update()
-	{		
+	{
 		if (playerAtributes.playerAlive)
 		{
 			if (target != null)
@@ -39,10 +36,8 @@ public class followEnemy : MonoBehaviour, IDamagable
 				else
 				{
 					anim.SetBool("Run", false);
-					if (can_damage)
-					{
-						StartCoroutine(DealDamage());
-					}
+					_player.Damaged(damage);
+					Destroy(gameObject);
 				}
 
 				//animation
@@ -59,15 +54,7 @@ public class followEnemy : MonoBehaviour, IDamagable
 			{
 				target = GameObject.FindGameObjectWithTag("Player").transform;
 			}
-		}		
-	}
-
-	private IEnumerator DealDamage()
-	{
-		can_damage = false;
-		_player.Damaged(damage);	
-		yield return new WaitForSeconds(coolDown);		
-		can_damage = true;		
+		}
 	}
 
 	private void Hit(float damageAmount)

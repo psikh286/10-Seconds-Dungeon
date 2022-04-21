@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 827135212523522124}
   - component: {fileID: 827135212523522114}
   - component: {fileID: 6096344718745633147}
+  - component: {fileID: 8014339760225960850}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -352,3 +353,15 @@ MonoBehaviour:
     damage: 5
     healthBar: {fileID: 21300000, guid: 4f3affee90285b444b650bd346ea2d5b, type: 3}
     abilityFill: {fileID: 21300000, guid: 406664326bce1fd4f85a02319b37f0db, type: 3}
+--- !u!114 &8014339760225960850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3757195691235507530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edf3f60c15c25f43886fe97cbf8ad1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
