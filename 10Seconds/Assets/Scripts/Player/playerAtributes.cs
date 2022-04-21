@@ -10,12 +10,9 @@ public class playerAtributes : MonoBehaviour
 	[Space]
 
 	[Header("References")]
-	[SerializeField]
-	private GameObject healthBar;
-	[SerializeField]
-	private GameObject deathMenu;
-	[SerializeField]
-	private GameObject fx;
+	[SerializeField] private GameObject healthBar;
+	[SerializeField] private GameObject deathMenu;
+	[SerializeField] private GameObject fx;
 
 	private void Start()
 	{

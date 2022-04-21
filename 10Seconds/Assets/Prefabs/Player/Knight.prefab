@@ -56,9 +56,10 @@ GameObject:
   - component: {fileID: 827135212834029897}
   - component: {fileID: 827135212834029903}
   - component: {fileID: 827135212834029896}
+  - component: {fileID: 3904778576432320995}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Finish
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +155,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3904778576432320995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827135212834029898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de02c6254ba98d4c9cc5965d0c111fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3757195691235507530
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atributes:
   - name: Knigh
-    healthBar: {fileID: 21300000, guid: 4f3affee90285b444b650bd346ea2d5b, type: 3}
-    speed: 5
+    speed: 7
     health: 40
     damage: 5
+    healthBar: {fileID: 21300000, guid: 4f3affee90285b444b650bd346ea2d5b, type: 3}
+    abilityFill: {fileID: 21300000, guid: 406664326bce1fd4f85a02319b37f0db, type: 3}
