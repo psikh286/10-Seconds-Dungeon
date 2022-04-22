@@ -53,6 +53,7 @@ public class skeleton : MonoBehaviour, IDamagable
 			else
 			{
 				target = GameObject.FindGameObjectWithTag("Player").transform;
+				return;
 			}
 		}
 	}

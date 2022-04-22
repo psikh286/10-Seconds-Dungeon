@@ -5,6 +5,8 @@ public class necromant : MonoBehaviour, IDamagable
 {
 	[Header("Stats")]
 
+	public int skeletonAmount = 2;
+
 	[SerializeField] private float health = 10f;
 	[SerializeField] private float speed = 3f;
 	[SerializeField] private float minDistance = 3f;
@@ -54,6 +56,7 @@ public class necromant : MonoBehaviour, IDamagable
 			else
 			{
 				target = GameObject.FindGameObjectWithTag("Player").transform;
+				return;
 			}
 		}
 	}
@@ -68,7 +71,7 @@ public class necromant : MonoBehaviour, IDamagable
 			Vector2 _offset = new Vector2(transform.position.x, transform.position.y);
 			anim.SetBool("Run", false);
 
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < skeletonAmount; i++)
 			{				
 				Instantiate(prefab, _offset + Random.insideUnitCircle, Quaternion.identity);
 				yield return new WaitForSeconds(delay);
