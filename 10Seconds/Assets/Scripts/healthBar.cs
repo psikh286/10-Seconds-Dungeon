@@ -16,13 +16,13 @@ public class healthBar : MonoBehaviour
 		Change();
 	}
 	public void Change()
-	{
+	{		
 		RectTransform rt = GetComponent<RectTransform>();
 		rt.sizeDelta = new Vector2(10f * playerAtributes.maxHealt, 75f);		
 
-		border.sprite = GameObject.FindGameObjectWithTag("Player").GetComponent<player>().atributes[0].healthBar;
-		fill.sprite = GameObject.FindGameObjectWithTag("Player").GetComponent<player>().atributes[0].abilityFill;
-
-		slider.value = playerAtributes.currentHealt / playerAtributes.maxHealt;
+		border.sprite = playerAtributes.currentPlayer.GetComponent<player>().atributes[0].healthBar;
+		fill.sprite = playerAtributes.currentPlayer.GetComponent<player>().atributes[0].abilityFill;
+				
+		slider.value = playerAtributes.currentHealt / playerAtributes.maxHealt;		
 	}
 }

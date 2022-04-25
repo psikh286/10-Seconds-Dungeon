@@ -184,7 +184,7 @@ MonoBehaviour:
   - name: Archer
     speed: 12
     health: 30
-    damage: 5
+    damage: 7
     healthBar: {fileID: 21300000, guid: 1bf9f00a14154704291fa33746c50f83, type: 3}
     abilityFill: {fileID: 21300000, guid: 134fb655266626347b919de7bcaa478c, type: 3}
 --- !u!114 &8619739244003228943
@@ -202,6 +202,7 @@ MonoBehaviour:
   crossHair: {fileID: 2800000, guid: 386138bbf95c02140a340e22d4c838ed, type: 3}
   prefab: {fileID: 2761623394988625611, guid: b6cc139f26bf3e3489e41b86c91c277d, type: 3}
   _pivot: {fileID: 1096517317019354906}
+  arrowSpeed: 13
 --- !u!1 &1096517317019354907
 GameObject:
   m_ObjectHideFlags: 0

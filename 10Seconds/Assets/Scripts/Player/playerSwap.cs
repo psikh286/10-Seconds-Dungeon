@@ -36,12 +36,12 @@ public class playerSwap : MonoBehaviour
 
 			playerAtributes.healthFactor = playerAtributes.currentHealt / playerAtributes.maxHealt;
 			playerAtributes.maxHealt = newPlayer.GetComponent<player>().atributes[0].health;
-			_player.UpdateHealth();			
+			_player.UpdateHealth();	
 
 			Destroy(oldPlayer);
-			yield return null;
+			playerAtributes.currentPlayer = newPlayer;
+			yield return null;			
 			_healthBar.Change();
-			Debug.Log("swaped");
 			yield return new WaitForSeconds(10f);
 		}		
 	}

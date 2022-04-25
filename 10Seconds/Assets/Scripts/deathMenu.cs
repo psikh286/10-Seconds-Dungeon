@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class deathMenu : MonoBehaviour
 {
+	[SerializeField] private TextMeshProUGUI _score;
+	[SerializeField] private waveManager waves;
+
 	private void OnEnable()
 	{
-		//score.Instance.UpdateGUI();
+		_score.text = "Waves: " + waves.waveCount;
 	}
 
 	public void Restart()
@@ -16,6 +20,7 @@ public class deathMenu : MonoBehaviour
 
 	public void Menu()
 	{
+		playerAtributes.playerAlive = true;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 	}
 }

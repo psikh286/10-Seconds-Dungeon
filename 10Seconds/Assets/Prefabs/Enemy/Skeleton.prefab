@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  minDistance: 1
+  minDistance: 1.5
   damage: 2
   health: 5
   anim: {fileID: 1437994547539720360}

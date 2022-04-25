@@ -7,10 +7,11 @@ public class playerAtributes : MonoBehaviour
 	public static float maxHealt = 40f;
 	public static bool playerAlive = true;
 	public static float healthFactor;
+	public static GameObject currentPlayer;
 	[Space]
 
 	[Header("References")]
-	[SerializeField] private GameObject healthBar;
+	[SerializeField] private healthBar healthBar;
 	[SerializeField] private GameObject deathMenu;
 	[SerializeField] private GameObject fx;
 
@@ -25,9 +26,10 @@ public class playerAtributes : MonoBehaviour
 	}
 
 	public void Damaged(float damage)
-	{
+	{		
 		currentHealt -= damage;
-		healthBar.GetComponent<healthBar>().Change();
+		healthBar.Change();
+		
 		if (currentHealt <= 0)
 		{
 			deathMenu.SetActive(true);

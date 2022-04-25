@@ -164,7 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7bbb1e1978da34cb84b38dd119d113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  skeletonAmount: 1
+  health: 8
   speed: 4
   minDistance: 4
   coolDown: 2
@@ -172,3 +173,4 @@ MonoBehaviour:
   anim: {fileID: 5605846577315702557}
   death_prefab: {fileID: 3931696902112004827, guid: 2e30dbf85e2dc8d458dade3f31accdff, type: 3}
   prefab: {fileID: 8626926732494125836, guid: 4f9a69ca68e6203408542c3ef778b82b, type: 3}
+  waves: {fileID: 0}

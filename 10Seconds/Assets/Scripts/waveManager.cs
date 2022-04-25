@@ -4,6 +4,7 @@ using UnityEngine;
 public class waveManager : MonoBehaviour
 {
 	public enemies[] packs;
+	public int waveCount = 0;
 
 	[SerializeField] private BoxCollider2D gridArea;
 
@@ -16,25 +17,27 @@ public class waveManager : MonoBehaviour
 
 	private IEnumerator Spawn()
 	{
-		int wavecount = 0;
 		while (true)
 		{
-			GameObject[] _pack = packs[Random.Range(0, packs.Length)].pack;
-
-			foreach (GameObject i in _pack)
+			if (playerAtributes.playerAlive)
 			{
-				Bounds bounds = gridArea.bounds;
+				GameObject[] _pack = packs[Random.Range(0, packs.Length)].pack;
 
-				float x = Random.Range(bounds.min.x, bounds.max.x);
-				float y = Random.Range(bounds.min.y, bounds.max.y);
-				Vector2 spawnPosition = new Vector2(x, y);
+				foreach (GameObject i in _pack)
+				{
+					Bounds bounds = gridArea.bounds;
 
-				Instantiate(i, spawnPosition, Quaternion.identity);
+					float x = Random.Range(bounds.min.x, bounds.max.x);
+					float y = Random.Range(bounds.min.y, bounds.max.y);
+					Vector2 spawnPosition = new Vector2(x, y);
+
+					Instantiate(i, spawnPosition, Quaternion.identity);
+				}
+				waveCount++;
+
+				yield return new WaitForSeconds(10f);
 			}
-			wavecount++;
-			Debug.Log(wavecount);
-			
-			yield return new WaitForSeconds(10f);
+			yield return null;
 		}		
 	}
 }

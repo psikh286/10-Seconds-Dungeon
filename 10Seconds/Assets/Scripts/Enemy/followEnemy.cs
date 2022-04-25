@@ -16,50 +16,60 @@ public class followEnemy : MonoBehaviour, IDamagable
 	[SerializeField] private Animator anim;
 	[SerializeField] private GameObject death_prefab;	
 	[SerializeField] private bool can_damage = true;
-	
+	[SerializeField] private waveManager waves;
+
 	private Transform target;
 	private playerAtributes _player;
 
 	private void Start()
 	{
 		_player = FindObjectOfType<playerAtributes>();
+		waves = FindObjectOfType<waveManager>();
+		health += 0.4f * waves.waveCount;
 	}
 
 	private void Update()
-	{		
+	{
+		if (target != null)
+		{
+			Move();
+			Animate();
+		}
+		else
+		{
+			target = FindObjectOfType<player>().transform;
+		}
+	}
+
+	private void Move()
+	{
 		if (playerAtributes.playerAlive)
 		{
-			if (target != null)
+			if (Vector2.Distance(transform.position, target.position) > minDistance)
 			{
-				if (Vector2.Distance(transform.position, target.position) > minDistance)
-				{
-					transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-					anim.SetBool("Run", true);
-				}
-				else
-				{
-					anim.SetBool("Run", false);
-					if (can_damage)
-					{
-						StartCoroutine(DealDamage());
-					}
-				}
-
-				//animation
-				if ((transform.position.x - target.position.x) < 0)
-				{
-					transform.localScale = new Vector3(1f, 1f, 1f);
-				}
-				else
-				{
-					transform.localScale = new Vector3(-1f, 1f, 1f);
-				}
+				transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+				anim.SetBool("Run", true);
 			}
 			else
 			{
-				target = GameObject.FindGameObjectWithTag("Player").transform;
+				anim.SetBool("Run", false);
+				if (can_damage)
+				{
+					StartCoroutine(DealDamage());
+				}
 			}
-		}		
+		}
+	}
+	private void Animate()
+	{
+		if ((transform.position.x - target.position.x) < 0)
+		{
+			transform.localScale = new Vector3(1f, 1f, 1f);
+		}
+		else
+		{
+			transform.localScale = new Vector3(-1f, 1f, 1f);
+		}
 	}
 
 	private IEnumerator DealDamage()
